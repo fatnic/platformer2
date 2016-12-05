@@ -9,8 +9,8 @@ function CollidableSystem:onAdd(entity)
 
     if not entity.hitbox then 
         entity.hitbox = {}
-        entity.hitbox.width = entity.image:getWidth()
-        entity.hitbox.height = entity.image:getHeight()
+        entity.hitbox.width = entity.dimensions.width
+        entity.hitbox.height = entity.dimensions.height
         entity.hitbox.offset = { x = 0; y = 0 }
     end
 

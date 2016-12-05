@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="30" tilewidth="16" tileheight="16" nextobjectid="56">
  <tileset firstgid="1" name="grid-tiles" tilewidth="16" tileheight="16" tilecount="16" columns="4">
-  <image source="grid-tiles.png" width="64" height="64"/>
+  <image source="../images/grid-tiles.png" width="64" height="64"/>
   <tile id="2">
    <properties>
     <property name="slope" value="up"/>
@@ -4663,7 +4663,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="2"/>
    <tile gid="2"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -4743,7 +4743,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="2"/>
    <tile gid="2"/>
    <tile gid="2"/>
    <tile gid="2"/>
@@ -4852,7 +4852,7 @@
    </properties>
   </object>
   <object id="40" x="624" y="208" width="16" height="224"/>
-  <object id="43" x="1264" y="0" width="16" height="432"/>
+  <object id="43" x="1264" y="0" width="16" height="464"/>
   <object id="44" x="800" y="448" width="48" height="16"/>
   <object id="46" x="960" y="448" width="48" height="16"/>
   <object id="48" name="jb" x="880" y="448" width="48" height="16">
@@ -4861,24 +4861,5 @@
    </properties>
   </object>
   <object id="49" x="1024" y="208" width="240" height="16"/>
- </objectgroup>
- <objectgroup name="lighting">
-  <object id="51" x="1072" y="224" width="448" height="448">
-   <properties>
-    <property name="b" value="0"/>
-    <property name="color" type="color" value="#ff0b29d0"/>
-    <property name="g" value="255"/>
-    <property name="r" value="0"/>
-   </properties>
-   <ellipse/>
-  </object>
-  <object id="55" x="544" y="-32" width="512" height="528">
-   <properties>
-    <property name="angle" type="int" value="55"/>
-    <property name="color" type="color" value="#ff645650"/>
-    <property name="direction" type="int" value="90"/>
-   </properties>
-   <ellipse/>
-  </object>
  </objectgroup>
 </map>

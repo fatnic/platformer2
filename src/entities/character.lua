@@ -6,6 +6,30 @@ function Character:initialize(image, x, y, args)
     self.position = { x = x or 0, y = y or 0 }
     self.rotation = args.rotation or 0
     self.scale = args.scale or { x = 1, y = 1 }
+    self.dimensions = {}
+    self.dimensions.width = self.image:getWidth()
+    self.dimensions.height = self.image:getHeight()
+
+    self.jumping = false
+    self.grounded = false
+
+    self.collisions = { x = 0, y = 0 }
+end
+
+function Character:moveLeft(dt)
+    if self.velocity.x < self.speed then self.velocity.x = self.velocity.x - (self.acceleration * dt) end
+end
+
+function Character:moveRight(dt)
+    if self.velocity.x < self.speed then self.velocity.x = self.velocity.x + (self.acceleration * dt) end
+end
+
+function Character:jump(dt)
+    if not self.jumping and self.grounded then
+        self.jumping = true
+        self.grounded = false
+        self.velocity.y = -self.jumpheight
+    end
 end
 
 return Character
