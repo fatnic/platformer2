@@ -40,13 +40,15 @@ function PlatformingSystem:process(e, dt)
         actual = { x = 0, y = 0 }
         actual.x, actual.y, cols, len = World.bump:check(e, goal.x, goal.y, colFilter)
         e.position.x, e.position.y = actual.x, actual.y
-        World.bump:update(e, e.position.x, e.position.y)
 
         for _, c in pairs(cols) do
 
             if e.isEnemy and c.other.isPlayer then break end
-            if e.isPlayer and c.other.isEnemy then break end
             if e.isEnemy and c.other.isEnemy then break end
+
+            if e.isPlayer and c.other.isEnemy then 
+                break
+            end
 
             e.collisions.x = c.normal.x
             e.collisions.y = c.normal.y
@@ -58,6 +60,10 @@ function PlatformingSystem:process(e, dt)
             elseif c.normal.y == 1 then
                 e.velocity.y = 0
             end
+
+            -- if c.other is moving platform
+            --  get calculated x velocity
+            --  add it to player position
 
             if c.other.properties and c.other.properties.jumpboost then
                 e.velocity.y = -e.jumpheight * 1.6

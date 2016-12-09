@@ -13,6 +13,11 @@ function Player:initialize(x, y, args)
     self.collidable = true
 
     self.isPlayer = true
+    self.updatable = true
+
+end
+
+function Player:update(dt)
 end
 
 return Player

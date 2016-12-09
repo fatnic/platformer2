@@ -1,6 +1,6 @@
 local CollidableSystem = tiny.processingSystem(class("CollidableSystem"))
 
-CollidableSystem.filter = tiny.requireAll('position', 'dimensions', 'collidable')
+CollidableSystem.filter = tiny.requireAll('position', 'width', 'height', 'collidable')
 
 function CollidableSystem:initialize(bump)
 end
@@ -9,8 +9,8 @@ function CollidableSystem:onAdd(entity)
 
     if not entity.hitbox then 
         entity.hitbox = {}
-        entity.hitbox.width = entity.dimensions.width
-        entity.hitbox.height = entity.dimensions.height
+        entity.hitbox.width = entity.width
+        entity.hitbox.height = entity.height
         entity.hitbox.offset = { x = 0; y = 0 }
     end
 
@@ -21,7 +21,7 @@ function CollidableSystem:onAdd(entity)
 end
 
 function CollidableSystem:process(e, dt)
-
+    World.bump:update(e, e.position.x, e.position.y)
 end
 
 return CollidableSystem
