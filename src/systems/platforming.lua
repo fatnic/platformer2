@@ -61,9 +61,10 @@ function PlatformingSystem:process(e, dt)
                 e.velocity.y = 0
             end
 
-            -- if c.other is moving platform
-            --  get calculated x velocity
-            --  add it to player position
+            if c.other.movingplatform then
+                e.position.x = e.position.x + c.other.velocity.x
+                e.position.y = e.position.y + c.other.velocity.y
+            end
 
             if c.other.properties and c.other.properties.jumpboost then
                 e.velocity.y = -e.jumpheight * 1.6

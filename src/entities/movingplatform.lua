@@ -25,6 +25,7 @@ function MovingPlatform:initialize(size, startx, starty, endx, endy, speed, dela
     self.collidable = true
     self.moving = false
     self.direction = true
+    self.prevpos = { x = 0, y = 0 }
 end
 
 return MovingPlatform
