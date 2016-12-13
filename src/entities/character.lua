@@ -11,6 +11,7 @@ function Character:initialize(image, x, y, args)
 
     self.jumping = false
     self.grounded = false
+    self.uuid = lume.uuid()
 
     self.collisions = { x = 0, y = 0 }
 end

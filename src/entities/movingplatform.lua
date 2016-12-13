@@ -1,6 +1,6 @@
 local MovingPlatform = class("MovingPlatform")
 
-function MovingPlatform:initialize(size, startx, starty, endx, endy, speed, delay)
+function MovingPlatform:initialize(size, stops, speed, delay)
 
     self.movingplatform = true
 
@@ -13,11 +13,9 @@ function MovingPlatform:initialize(size, startx, starty, endx, endy, speed, dela
     self.height = self.image:getHeight()
 
     self.stops = {}
-    table.insert(self.stops, { x = startx, y = starty })
-    table.insert(self.stops, { x = endx, y = endy })
-
-    self.startpos = self.stops[1]
-    self.endpos = self.stops[2]
+    for _, v in pairs(stops) do
+        table.insert(self.stops, { x = v[1], y = v[2] })
+    end
 
     self.speed = speed
     self.delay = delay

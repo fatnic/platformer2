@@ -10,7 +10,6 @@ Timer = require 'ext.hump.timer'
 
 require 'helpers'
 
-
 TileRendererSystem = require 'src.systems.tilerenderer'
 ControllableSystem = require 'src.systems.controllable'
 CollidableSystem = require 'src.systems.collidable'
@@ -53,7 +52,7 @@ function love.load()
     player = Player:new(50, 50)
     World.ecs:addEntity(player)
 
-    platform = MovingPlatform:new(4, 50, 130, 200, 130, 2, 1)
+    platform = MovingPlatform:new(4, {{50, 100}, {200, 100}}, 2, 1)
     World.ecs:addEntity(platform)
 
     for i = 1, 5 do
