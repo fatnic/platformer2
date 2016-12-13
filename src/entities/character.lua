@@ -9,8 +9,15 @@ function Character:initialize(image, x, y, args)
     self.width = self.image:getWidth()
     self.height = self.image:getHeight()
 
+    self.velocity = { x = 0, y = 0 }
+    self.acceleration = 20
+    self.speed = 40
+    self.jumpheight = 5
+    self.collidable = true
+
     self.jumping = false
     self.grounded = false
+
     self.uuid = lume.uuid()
 
     self.collisions = { x = 0, y = 0 }

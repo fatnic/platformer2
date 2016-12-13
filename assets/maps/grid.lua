@@ -8,7 +8,7 @@ return {
   height = 30,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 56,
+  nextobjectid = 68,
   properties = {},
   tilesets = {
     {
@@ -379,6 +379,86 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "movingplatforms",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 56,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 800,
+          y = 208,
+          width = 48,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["name"] = "wide",
+            ["stop"] = 1
+          }
+        },
+        {
+          id = 61,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 976,
+          y = 208,
+          width = 48,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["name"] = "wide",
+            ["stop"] = 2
+          }
+        },
+        {
+          id = 66,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 480,
+          y = 224,
+          width = 16,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["delay"] = 0,
+            ["name"] = "updown",
+            ["speed"] = 0.5,
+            ["stop"] = 1
+          }
+        },
+        {
+          id = 67,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 480,
+          y = 320,
+          width = 16,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["delay"] = 0,
+            ["name"] = "updown",
+            ["speed"] = 0.5,
+            ["stop"] = 2
+          }
         }
       }
     }

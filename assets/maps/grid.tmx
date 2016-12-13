@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="30" tilewidth="16" tileheight="16" nextobjectid="56">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="30" tilewidth="16" tileheight="16" nextobjectid="68">
  <tileset firstgid="1" name="grid-tiles" tilewidth="16" tileheight="16" tilecount="16" columns="4">
   <image source="../images/grid-tiles.png" width="64" height="64"/>
   <tile id="2">
@@ -4856,5 +4856,35 @@
    </properties>
   </object>
   <object id="49" x="1024" y="208" width="240" height="16"/>
+ </objectgroup>
+ <objectgroup name="movingplatforms">
+  <object id="56" x="800" y="208" width="48" height="16">
+   <properties>
+    <property name="name" value="wide"/>
+    <property name="stop" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="61" x="976" y="208" width="48" height="16">
+   <properties>
+    <property name="name" value="wide"/>
+    <property name="stop" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="66" x="480" y="224" width="16" height="32">
+   <properties>
+    <property name="delay" type="int" value="0"/>
+    <property name="name" value="updown"/>
+    <property name="speed" type="float" value="0.5"/>
+    <property name="stop" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="67" x="480" y="320" width="16" height="32">
+   <properties>
+    <property name="delay" type="int" value="0"/>
+    <property name="name" value="updown"/>
+    <property name="speed" type="float" value="0.5"/>
+    <property name="stop" type="int" value="2"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

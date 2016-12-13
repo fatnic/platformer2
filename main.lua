@@ -6,7 +6,6 @@ bump = require 'ext.bump'
 Gamera = require 'ext.gamera'
 lume = require 'ext.lume'
 flux = require 'ext.flux'
-Timer = require 'ext.hump.timer'
 
 require 'helpers'
 
@@ -51,9 +50,6 @@ function love.load()
 
     player = Player:new(50, 50)
     World.ecs:addEntity(player)
-
-    platform = MovingPlatform:new(4, {{50, 100}, {200, 100}}, 2, 1)
-    World.ecs:addEntity(platform)
 
     for i = 1, 5 do
         enemy = Enemy:new(lume.random(World.map.totalwidth), 0)
