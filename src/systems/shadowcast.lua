@@ -8,7 +8,6 @@ end
 
 function ShadowCastSystem:process(e, dt)
     e.shadowbody:setPosition(e.position.x + e.width / 2, e.position.y + e.height / 2)   
-    -- if movingplatform and not moving then make shadow wider to fill gap???
 end
 
 return ShadowCastSystem

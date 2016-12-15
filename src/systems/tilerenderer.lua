@@ -4,7 +4,7 @@ function TileRendererSystem:initialize(args)
     local args = args or {}
 
     -- hide object layers
-    local hidden = {'collision', 'movingplatforms'}
+    local hidden = {'collision', 'movingplatforms', 'lighting'}
     for _, l in pairs(hidden) do 
         if World.map.layers[l] then
             World.map.layers[l].visible = false 
@@ -16,6 +16,13 @@ function TileRendererSystem:initialize(args)
     for _, c in pairs(collisions) do
         World.bump:add({properties = c.properties}, c.x, c.y, c.width, c.height)
         World.lights:newRectangle(c.x + c.width / 2, c.y + c.height / 2, c.width, c.height - 2)
+    end
+
+    -- add lighting
+    local lighting = World.map.layers['lighting'].objects
+    for _, c in pairs(lighting) do
+        local _, r, g, b = colorise.hex2rgba(c.properties.color)
+        World.lights:newLight(c.x, c.y, r, g, b, c.properties.radius)
     end
 
     -- generate moving platforms

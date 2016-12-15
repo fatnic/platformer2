@@ -2,9 +2,6 @@ local CollidableSystem = tiny.processingSystem(class("CollidableSystem"))
 
 CollidableSystem.filter = tiny.requireAll('position', 'width', 'height', 'collidable')
 
-function CollidableSystem:initialize(bump)
-end
-
 function CollidableSystem:onAdd(entity)
 
     if not entity.hitbox then 

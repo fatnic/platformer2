@@ -2,6 +2,7 @@ tiny = require 'ext.tiny'
 class = require 'ext.middleclass'
 sti = require 'ext.sti'
 bump = require 'ext.bump'
+colorise = require 'ext.colorise'
 lightworld = require 'ext.lightworld'
 lume = require 'ext.lume'
 flux = require 'ext.flux'
@@ -39,8 +40,7 @@ function love.load()
     World.ecs  = tiny.world()
     World.bump = bump.newWorld(16)
     World.map  = sti('assets/maps/grid.lua')
-    World.lights = lightworld({ ambient = { 20, 20, 20 }, blur = 2 })
-    -- World.lights.post_shader:addEffect("pip")
+    World.lights = lightworld({ ambient = { 50, 50, 50 }, blur = 2 })
 
     World.ecs:addSystem(ControllableSystem(Input))
     World.ecs:addSystem(TileRendererSystem())
@@ -58,6 +58,9 @@ function love.load()
     for i = 1, 5 do
         World.ecs:addEntity(Enemy:new(lume.random(World.map.totalwidth), 0))
     end
+
+    -- World.lights:newLight(250, 150, 255, 128, 64, 300)
+    -- World.lights:newLight(700, 440, 255, 0, 0, 300)
 end
 
 function love.update(dt)
@@ -65,7 +68,6 @@ function love.update(dt)
 
     Input:update()
     flux.update(dt)
-
 end
 
 function love.draw()

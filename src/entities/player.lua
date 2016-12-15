@@ -15,14 +15,13 @@ function Player:initialize(x, y, args)
     self.isPlayer = true
     self.updatable = true
 
-    self.shadowcast = nil
-
-    self.light = World.lights:newLight(self.position.x + self.width / 2, self.position.y + self.height / 2, 255, 128, 64, 300)
+    -- self.shadowcast = nil
+    -- self.light = World.lights:newLight(self.position.x + self.width / 2, self.position.y + self.height / 2, 255, 128, 64, 300)
 end
 
 function Player:update(dt)
-    self.light:setPosition(self.position.x + self.width / 2, self.position.y + self.height / 2)
-    self.light:setRange(lume.random(300,350))
+    -- self.light:setPosition(self.position.x + self.width / 2, self.position.y + self.height / 2)
+    -- self.light:setRange(lume.random(300,350))
 end
 
 return Player
