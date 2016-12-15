@@ -1,9 +1,8 @@
 tiny = require 'ext.tiny'
 class = require 'ext.middleclass'
-inspect = require 'ext.inspect'
 sti = require 'ext.sti'
 bump = require 'ext.bump'
-Gamera = require 'ext.gamera'
+lightworld = require 'ext.lightworld'
 lume = require 'ext.lume'
 flux = require 'ext.flux'
 
@@ -17,6 +16,7 @@ PlatformingSystem = require 'src.systems.platforming'
 MovingPlatformSystem = require 'src.systems.movingplatform'
 AISystem = require 'src.systems.ai'
 UpdatingSystem = require 'src.systems.updating'
+ShadowCastSystem = require 'src.systems.shadowcast'
 
 Character = require 'src.entities.character'
 Player = require 'src.entities.player'
@@ -35,28 +35,29 @@ Input = baton.new({
 })
 
 function love.load()
+
     World.ecs  = tiny.world()
     World.bump = bump.newWorld(16)
     World.map  = sti('assets/maps/grid.lua')
+    World.lights = lightworld({ ambient = { 20, 20, 20 }, blur = 2 })
+    -- World.lights.post_shader:addEffect("pip")
 
-    World.ecs:addSystem(TileRendererSystem())
     World.ecs:addSystem(ControllableSystem(Input))
+    World.ecs:addSystem(TileRendererSystem())
     World.ecs:addSystem(PlatformingSystem())
     World.ecs:addSystem(MovingPlatformSystem())
     World.ecs:addSystem(CollidableSystem())
     World.ecs:addSystem(AISystem())
     World.ecs:addSystem(UpdatingSystem())
     World.ecs:addSystem(SpriteSystem())
+    World.ecs:addSystem(ShadowCastSystem())
 
     player = Player:new(50, 50)
     World.ecs:addEntity(player)
 
     for i = 1, 5 do
-        enemy = Enemy:new(lume.random(World.map.totalwidth), 0)
-        World.ecs:addEntity(enemy)
+        World.ecs:addEntity(Enemy:new(lume.random(World.map.totalwidth), 0))
     end
-
-    World.camera = Gamera.new(0, 0, World.map.totalwidth, World.map.totalheight)
 end
 
 function love.update(dt)
@@ -65,14 +66,14 @@ function love.update(dt)
     Input:update()
     flux.update(dt)
 
-    World.camera:setPosition(player.position.x, player.position.y)
 end
 
 function love.draw()
     local dt = love.timer.getDelta()
 
-    World.camera:draw(function(l,r,w,h) 
-            World.ecs:update(dt)
+    World.lights:draw(function() 
+        World.ecs:update(dt)
+        World.lights:update(dt)
     end)
 
 end

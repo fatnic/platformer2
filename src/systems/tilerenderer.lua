@@ -11,10 +11,11 @@ function TileRendererSystem:initialize(args)
         end
     end
 
-    -- create collisions
+    -- create collisions and shadows
     local collisions = World.map.layers['collision'].objects
     for _, c in pairs(collisions) do
         World.bump:add({properties = c.properties}, c.x, c.y, c.width, c.height)
+        World.lights:newRectangle(c.x + c.width / 2, c.y + c.height / 2, c.width, c.height - 2)
     end
 
     -- generate moving platforms

@@ -1,3 +1,5 @@
+local inspect = require 'ext.inspect'
+
 function pprint(t)
     print(inspect(t))
 end

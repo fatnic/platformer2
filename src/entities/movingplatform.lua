@@ -19,6 +19,7 @@ function MovingPlatform:initialize(width, height, speed, delay)
     self.moving = false
     self.direction = true
     self.prevpos = { x = 0, y = 0 }
+    self.shadowcast = true
 end
 
 function MovingPlatform:addStop(sx, sy, speed, delay)
