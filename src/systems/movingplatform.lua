@@ -4,7 +4,7 @@ MovingPlatformSystem.filter = tiny.requireAll('movingplatform')
 
 function MovingPlatformSystem:onAdd(e)
     e.position = scopy(e.stops[1])
-    e.prevpos = scopy(e.position)
+    e.prevpos  = scopy(e.position)
     table.insert(e.stops, #e.stops, table.remove(e.stops, 1))
 end
 

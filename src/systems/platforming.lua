@@ -10,12 +10,13 @@ function PlatformingSystem:initialize(args)
 end
 
 function PlatformingSystem:process(e, dt)
+
     local friction = e.friction or self.friction
     local airresistance = e.airresistance or self.airresistance
     local gravity = e.gravity or self.gravity
 
     local colFilter = function(item, other)
-        if other.isEnemy then return 'cross' end
+        if other.isEnemy  then return 'cross' end
         if other.isPlayer then return 'cross' end
         return 'slide'
     end
@@ -33,7 +34,7 @@ function PlatformingSystem:process(e, dt)
     goal = { x = 0, y = 0  }
 
     goal.x = e.position.x + e.velocity.x
-    goal.y = e.position.y + e.velocity.y
+    goal.y = e.position.y + e.velocity.y 
 
     if goal.x ~= e.position.x or goal.y ~= e.position.y then
 
@@ -45,10 +46,7 @@ function PlatformingSystem:process(e, dt)
 
             if e.isEnemy and c.other.isPlayer then break end
             if e.isEnemy and c.other.isEnemy then break end
-
-            if e.isPlayer and c.other.isEnemy then 
-                break
-            end
+            if e.isPlayer and c.other.isEnemy then break end
 
             e.collisions.x = c.normal.x
             e.collisions.y = c.normal.y

@@ -8,7 +8,9 @@ function Enemy:initialize(x, y, args)
     self.hasAI = true
     self.updatable = true
 
-    self.direction = lume.randomchoice({-1, 1}) 
+    self.jumpheight = 6
+
+    self.direction = -1
 
 end
 

@@ -8,7 +8,7 @@ return {
   height = 30,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 87,
+  nextobjectid = 93,
   properties = {},
   tilesets = {
     {
@@ -158,9 +158,9 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 16,
+          x = -192,
           y = 208,
-          width = 192,
+          width = 400,
           height = 16,
           rotation = 0,
           visible = true,
@@ -186,7 +186,7 @@ return {
           shape = "rectangle",
           x = 0,
           y = 464,
-          width = 1280,
+          width = 640,
           height = 16,
           rotation = 0,
           visible = true,
@@ -229,7 +229,9 @@ return {
           height = 560,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["transparent"] = true
+          }
         },
         {
           id = 31,
@@ -237,12 +239,14 @@ return {
           type = "",
           shape = "rectangle",
           x = 624,
-          y = -208,
+          y = 0,
           width = 16,
-          height = 464,
+          height = 256,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["transparent"] = true
+          }
         },
         {
           id = 34,
@@ -251,7 +255,7 @@ return {
           shape = "rectangle",
           x = 288,
           y = 208,
-          width = 336,
+          width = 464,
           height = 16,
           rotation = 0,
           visible = true,
@@ -284,6 +288,21 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 87,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 672,
+          y = 224,
+          width = 16,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["transparent"] = true
+          }
         }
       }
     },
@@ -319,13 +338,46 @@ return {
           type = "",
           shape = "rectangle",
           x = 208,
-          y = 464,
+          y = 400,
           width = 80,
           height = 16,
           rotation = 0,
           visible = true,
           properties = {
             ["name"] = "elevator",
+            ["stop"] = 2
+          }
+        },
+        {
+          id = 91,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 144,
+          width = 80,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["name"] = "sidey",
+            ["stop"] = 1
+          }
+        },
+        {
+          id = 92,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 544,
+          y = 144,
+          width = 80,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["delay"] = 5,
+            ["name"] = "sidey",
             ["stop"] = 2
           }
         }
@@ -346,7 +398,7 @@ return {
           name = "",
           type = "",
           shape = "ellipse",
-          x = 162,
+          x = -14,
           y = 10,
           width = 0,
           height = 0,
@@ -362,10 +414,10 @@ return {
           name = "",
           type = "",
           shape = "ellipse",
-          x = 482,
+          x = 658,
           y = 10,
           width = 0,
-          height = 0,
+          height = 6,
           rotation = 0,
           visible = true,
           properties = {
@@ -378,7 +430,7 @@ return {
           name = "",
           type = "",
           shape = "ellipse",
-          x = 338,
+          x = 400,
           y = 234,
           width = 0,
           height = 0,
@@ -401,7 +453,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["color"] = "#ff3465a4",
+            ["color"] = "#ffff0000",
             ["radius"] = 300
           }
         }

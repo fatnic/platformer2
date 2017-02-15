@@ -6,16 +6,18 @@ function TileRendererSystem:initialize(args)
     -- hide object layers
     local hidden = {'collision', 'movingplatforms', 'lighting'}
     for _, l in pairs(hidden) do 
-        if World.map.layers[l] then
-            World.map.layers[l].visible = false 
-        end
+        if World.map.layers[l] then World.map.layers[l].visible = false end
     end
 
     -- create collisions and shadows
     local collisions = World.map.layers['collision'].objects
     for _, c in pairs(collisions) do
         World.bump:add({properties = c.properties}, c.x, c.y, c.width, c.height)
-        World.lights:newRectangle(c.x + c.width / 2, c.y + c.height / 2, c.width, c.height - 2)
+
+        if not c.properties.transparent then
+            World.lights:newRectangle(c.x + c.width / 2, c.y + c.height / 2, c.width, c.height - 2)
+        end
+
     end
 
     -- add lighting
