@@ -71,9 +71,9 @@ end
 function love.draw()
     local dt = love.timer.getDelta()
 
-    -- World.lights:draw(function() 
+    World.lights:draw(function() 
         World.ecs:update(dt)
         World.lights:update(dt)
-    -- end)
+    end)
 
 end
